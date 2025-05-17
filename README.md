@@ -21,18 +21,25 @@ E-commerce bookshop with payment gateway integration. Features responsive design
 - RESTful API integration for payment processing
 
 ## Project Structure
-root folder
-├── index.html        # Homepage with book listings
-├── pay.html          # Credit card payment form
-├── success.html      # Payment confirmation page
-├── js (folder)       # JavaScript files
-│   ├── script.js     # Book display functionality
-│   ├── navigation.js # Hamburger menu functionality
-│   ├── payment.js    # Credit card validation
-│   └── success.js   # Success page display
-├── image (folder)    # Image assets
-└── css (folder)      # CSS stylesheets
-└── styles.css    # Main stylesheet
+
+**root folder**
+- index.html - Homepage with book listings
+- pay.html - Credit card payment form
+- success.html - Payment confirmation page
+
+**js folder**
+- script.js - Book display functionality
+- navigation.js - Hamburger menu functionality  
+- payment.js - Credit card validation
+- success.js - Success page display
+
+**image folder**
+- book-logo.jpg
+- book1.jpg through book4.jpg
+- card-logos.jpg
+
+**css folder**
+- styles.css - Main stylesheet
 
 ## Academic Information
 
