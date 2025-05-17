@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Payment Successful - My Bookshop</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="image/book-logo.jpg" alt="Bookshop Logo" class="logo">
+            <h1>My Bookshop</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>You have successfully entered your credit card details</h2>
+        <div class="card-info">
+            <h3>Debit / Credit Card</h3>
+            <img src="image/card-logos.jpg" alt="Credit Card Logo">
+            <p id="cardNumber">Loading card details...</p>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 My Bookshop. All rights reserved.</p>
+    </footer>
+    
+    <!-- Hamburger menu JavaScript -->
+    <script>
+        // Wait for the document to fully load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Success page loaded');
+            
+            // Add hamburger menu icon
+            const nav = document.querySelector('nav');
+            const hamburgerMenu = document.createElement('div');
+            hamburgerMenu.className = 'hamburger-menu';
+            hamburgerMenu.innerHTML = '☰';
+            
+            // Insert hamburger menu before the nav
+            const header = document.querySelector('header');
+            header.insertBefore(hamburgerMenu, nav);
+            
+            // Add event listener to hamburger menu
+            hamburgerMenu.addEventListener('click', function() {
+                console.log('Hamburger menu clicked');
+                const navList = document.querySelector('nav ul');
+                navList.classList.toggle('show');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const navList = document.querySelector('nav ul');
+                const hamburgerMenu = document.querySelector('.hamburger-menu');
+                
+                if (!navList.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+                    navList.classList.remove('show');
+                }
+            });
+        });
+    </script>
+    
+    <!-- Card number display script -->
+    <script>
+        // This script runs as soon as the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Card display script loaded');
+            
+            // Get the last four digits from the URL
+            function getLastFourDigits() {
+                try {
+                    // Get URL parameters
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const digits = urlParams.get('digits');
+                    console.log('Digits from URL:', digits);
+                    
+                    if (digits) {
+                        return digits;
+                    }
+                    
+                    // Try localStorage as fallback
+                    const storedDigits = localStorage.getItem('cardLastFourDigits');
+                    console.log('Digits from localStorage:', storedDigits);
+                    
+                    if (storedDigits) {
+                        // Clear after use
+                        localStorage.removeItem('cardLastFourDigits');
+                        return storedDigits;
+                    }
+                    
+                    // Default if nothing found
+                    return null;
+                } catch (error) {
+                    console.error('Error getting card digits:', error);
+                    return null;
+                }
+            }
+            
+            // Update the display with the last four digits
+            const lastFour = getLastFourDigits();
+            const cardNumberElement = document.getElementById('cardNumber');
+            
+            if (lastFour) {
+                cardNumberElement.textContent = 'Your credit card number ends in **** **** **** ' + lastFour;
+                console.log('Updated card display with last four digits:', lastFour);
+            } else {
+                cardNumberElement.textContent = 'Your credit card has been processed successfully';
+                console.log('No last four digits found, using default text');
+            }
+        });
+    </script>
+</body>
+</html>

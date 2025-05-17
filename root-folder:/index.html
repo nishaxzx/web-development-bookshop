@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>My Bookshop</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="image/book-logo.jpg" alt="Bookshop Logo" class="logo">
+            <h1>My Bookshop</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="book-list">
+            <div class="book-item">
+                <div class="book-image">
+                    <img src="image/book1.jpg" alt="Code: The Hidden Language of Computer Hardware and Software">
+                </div>
+                <div class="book-details">
+                    <h3>Code: The Hidden Language of Computer Hardware and Software</h3>
+                    <p><em>By Charles Petzold</em></p>
+                    <p>An illuminating journey into the inner workings of computers, revealing how software and hardware actually function. Petzold makes complex concepts accessible by exploring the fundamental ideas behind coding, from simple logic gates to operating systems.</p>
+                    <button class="pay-button" onclick="window.location.href='pay.html'">Pay</button>
+                </div>
+            </div>
+            
+            <div class="book-item">
+                <div class="book-image">
+                    <img src="image/book2.jpg" alt="Can't Hurt Me">
+                </div>
+                <div class="book-details">
+                    <h3>Can't Hurt Me: Master Your Mind and Defy the Odds</h3>
+                    <p><em>By David Goggins</em></p>
+                    <p>From growing up in an abusive household to becoming a Navy SEAL and ultramarathon runner, Goggins shares his extraordinary journey of mental and physical transformation. This raw memoir teaches how to build unshakeable resilience by confronting your deepest fears.</p>
+                    <button class="pay-button" onclick="window.location.href='pay.html'">Pay</button>
+                </div>
+            </div>
+            
+            <div class="book-item">
+                <div class="book-image">
+                    <img src="image/book3.jpg" alt="Atomic Habits">
+                </div>
+                <div class="book-details">
+                    <h3>Atomic Habits</h3>
+                    <p><em>By James Clear</em></p>
+                    <p>A revolutionary guide to building good habits and breaking bad ones. Clear presents a proven framework for improving every day, showing how tiny changes in behavior can result in remarkable outcomes. Discover practical strategies that teach you exactly how to form habits that last.</p>
+                    <button class="pay-button" onclick="window.location.href='pay.html'">Pay</button>
+                </div>
+            </div>
+            
+            <div class="book-item">
+                <div class="book-image">
+                    <img src="image/book4.jpg" alt="The Midnight Library">
+                </div>
+                <div class="book-details">
+                    <h3>The Midnight Library</h3>
+                    <p><em>By Matt Haig</em></p>
+                    <p>Between life and death, Nora Seed discovers a library filled with books that show how her life would have turned out if she had made different choices. As she explores alternate versions of herself, she must decide what truly makes a life worth living.</p>
+                    <button class="pay-button" onclick="window.location.href='pay.html'">Pay</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 My Bookshop. All rights reserved.</p>
+    </footer>
+    
+    <!-- Inline JavaScript for the hamburger menu -->
+    <script>
+        // Wait for the document to fully load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Index page loaded');
+            
+            // Add hamburger menu icon
+            const nav = document.querySelector('nav');
+            const hamburgerMenu = document.createElement('div');
+            hamburgerMenu.className = 'hamburger-menu';
+            hamburgerMenu.innerHTML = '☰';
+            
+            // Insert hamburger menu before the nav
+            const header = document.querySelector('header');
+            header.insertBefore(hamburgerMenu, nav);
+            
+            // Add event listener to hamburger menu
+            hamburgerMenu.addEventListener('click', function() {
+                console.log('Hamburger menu clicked');
+                const navList = document.querySelector('nav ul');
+                navList.classList.toggle('show');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const navList = document.querySelector('nav ul');
+                const hamburgerMenu = document.querySelector('.hamburger-menu');
+                
+                if (!navList.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+                    navList.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
